@@ -1,0 +1,121 @@
+// 设置变量
+@bg-color: #7ef7a8;
+
+// 清除默认样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; // 改变盒模型计算方式
+}
+body{
+  font: bold 20px "Courier";
+}
+// 设置主窗口样式
+#main {
+  width: 360px;
+  height: 420px;
+  background-color: @bg-color;
+  margin: 50px auto;
+  border: 10px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10%;
+
+  display: flex;
+  flex-flow: column;  // 设置主轴方向
+  align-items: center;  // 设置侧轴对齐方式
+  justify-content: space-around; // 设置主轴对齐方式
+
+  // 游戏主窗口
+  #stage {
+    width: 304px;
+    height: 304px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    // gameover
+    #over {
+      display: none;
+      position: absolute;
+      top: 100px;
+      left: 55px;
+      font-size: 30px;
+    }
+
+    // 蛇的样式
+    #snake {
+      &>div {
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        border: 1px solid @bg-color;
+        position: absolute; // 开启绝对定位才能动
+      }
+    }
+    // 食物
+    #food {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      left: 40px;
+      top: 10px;
+      //animation:turn 5s linear infinite;
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: space-between;
+
+
+      &>div {
+          width: 5px;
+          height: 5px;
+          background-color: #f79850;
+          transform: rotate(45deg);
+          animation:turn 5s linear infinite;
+      }
+    }
+  }
+
+  // 积分排
+  #score-panel{
+    width: 300px;
+    display: flex;
+    justify-content: space-between; // 设置主轴对齐方式
+
+    button{
+      width: 80px;
+      height: 40px;
+      font: 16px bold;
+      margin-top: -10px;
+    }
+  }
+}
+
+
+
+/*
+  turn : 定义的动画名称
+  1s : 动画时间
+  linear : 动画以何种运行轨迹完成一个周期
+  infinite :规定动画应该无限次播放
+ */
+@keyframes turn{
+  0%{
+    -webkit-transform:rotate(0deg);
+  }
+  25%{
+    -webkit-transform:rotate(90deg);
+    background-color: #eade3e;
+  }
+  50%{
+    -webkit-transform:rotate(180deg);
+    background-color: #4eb8c6;
+  }
+  75%{
+    -webkit-transform:rotate(270deg);
+    background-color: #f056b8;
+  }
+  100%{
+    -webkit-transform:rotate(360deg);
+    background-color: #f79850;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake</title>
+</head>
+<body>
+<!--  创建游戏主容器-->
+<div id="main">
+  <!--  设置游戏主窗口-->
+  <div id="stage">
+    <!-- 蛇体 -->
+    <div id="snake">
+      <!-- 蛇节 -->
+      <div></div>
+    </div>
+
+    <!-- 食物 -->
+    <div id="food">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- gameover -->
+    <div id="over">Game Over!</div>
+  </div>
+
+  <!--  设置积分排-->
+  <div id="score-panel">
+    <div>
+      SCORE: <span id="score">0</span>
+    </div>
+    <div>
+      <button id="play" onClick="location.reload() ">重新开始</button>
+    </div>
+    <div>
+      LEVEL: <span id="level">1</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
